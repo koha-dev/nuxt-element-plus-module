@@ -32,7 +32,8 @@ export default defineNuxtModule<ModuleOptions>({
 
     if (options.autoImport) {
       addVitePlugin(ViteComponents({
-        resolvers: [ElementPlusResolver()]
+        resolvers: [ElementPlusResolver()],
+        dts: false
       }))
     }
   }
