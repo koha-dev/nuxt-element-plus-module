@@ -1,6 +1,17 @@
 {
   "name": "nuxt-element-plus-module",
   "version": "0.1.0",
+  "description": "Element Plus module for Nuxt",
+  "repository": "koha-dev/nuxt-element-plus-module",
+  "homepage": "https://github.com/koha-dev/nuxt-element-plus-module#readme",
+  "keywords": [
+    "nuxt",
+    "nuxt3",
+    "nuxtjs",
+    "nuxt-module",
+    "element",
+    "element-plus"
+  ],
   "license": "MIT",
   "type": "module",
   "exports": {
