@@ -668,7 +668,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/schema@npm:3.0.0-rc.11, @nuxt/schema@npm:^3.0.0-rc.11":
+"@nuxt/schema@npm:3.0.0-rc.11":
   version: 3.0.0-rc.11
   resolution: "@nuxt/schema@npm:3.0.0-rc.11"
   dependencies:
@@ -5914,17 +5914,17 @@ __metadata:
   dependencies:
     "@nuxt/kit": ^3.0.0-rc.11
     "@nuxt/module-builder": latest
-    "@nuxt/schema": ^3.0.0-rc.11
+    "@nuxt/schema": 3.0.0-rc.11
     "@nuxtjs/eslint-config-typescript": latest
     element-plus: ^2.2.17
     eslint: latest
-    nuxt: ^3.0.0-rc.11
+    nuxt: 3.0.0-rc.11
     unplugin-element-plus: ^0.4.1
     unplugin-vue-components: ^0.22.8
   languageName: unknown
   linkType: soft
 
-"nuxt@npm:^3.0.0-rc.11":
+"nuxt@npm:3.0.0-rc.11":
   version: 3.0.0-rc.11
   resolution: "nuxt@npm:3.0.0-rc.11"
   dependencies:
