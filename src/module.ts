@@ -1,5 +1,4 @@
 import { defineNuxtModule, addVitePlugin, addComponent } from '@nuxt/kit'
-import ElementPlus from 'element-plus'
 import { resolve } from 'pathe'
 import ElementPlusVite from 'unplugin-element-plus/vite'
 import type { Options as UnpluginEPOptions } from 'unplugin-element-plus/types'
@@ -25,13 +24,13 @@ export default defineNuxtModule<ModuleOptions>({
     autoImport: true,
     unpluginOptions: {}
   },
-  setup (options, nuxt) {
+  async setup (options, nuxt) {
     nuxt.options.build.transpile.push('element-plus/es')
 
     addVitePlugin(ElementPlusVite(options.unpluginOptions))
 
     if (options.autoImport) {
-      Object.entries(ElementPlus).forEach(([key, _]) => {
+      Object.entries(await import('element-plus')).forEach(([key, _]) => {
         if (!key.toLowerCase().startsWith('el')) {
           return
         }
