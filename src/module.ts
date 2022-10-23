@@ -1,7 +1,8 @@
-import { defineNuxtModule, addVitePlugin } from '@nuxt/kit'
+import { defineNuxtModule, addVitePlugin, addComponent } from '@nuxt/kit'
+import { resolve } from 'pathe'
 import ElementPlusVite from 'unplugin-element-plus/vite'
 import type { Options as UnpluginEPOptions } from 'unplugin-element-plus/types'
-import ViteComponents from 'unplugin-vue-components/vite'
+import VueComponents from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { name, version } from '../package.json'
 
@@ -25,13 +26,23 @@ export default defineNuxtModule<ModuleOptions>({
     autoImport: true,
     unpluginOptions: {}
   },
-  setup (options, nuxt) {
+  async setup (options, nuxt) {
     nuxt.options.build.transpile.push('element-plus/es')
 
     addVitePlugin(ElementPlusVite(options.unpluginOptions))
 
     if (options.autoImport) {
-      addVitePlugin(ViteComponents({
+      Object.entries(await import('element-plus')).forEach(([key, _]) => {
+        if (!key.toLowerCase().startsWith('el')) {
+          return
+        }
+        addComponent({
+          name: key,
+          filePath: resolve('.', 'node_modules/element-plus/es/components'),
+          export: key
+        })
+      })
+      addVitePlugin(VueComponents({
         resolvers: [ElementPlusResolver()],
         dts: false
       }))
