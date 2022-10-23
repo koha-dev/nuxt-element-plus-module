@@ -2,6 +2,8 @@ import { defineNuxtModule, addVitePlugin, addComponent } from '@nuxt/kit'
 import { resolve } from 'pathe'
 import ElementPlusVite from 'unplugin-element-plus/vite'
 import type { Options as UnpluginEPOptions } from 'unplugin-element-plus/types'
+import VueComponents from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { name, version } from '../package.json'
 
 export interface ModuleOptions {
@@ -40,6 +42,10 @@ export default defineNuxtModule<ModuleOptions>({
           export: key
         })
       })
+      addVitePlugin(VueComponents({
+        resolvers: [ElementPlusResolver()],
+        dts: false
+      }))
     }
   }
 })

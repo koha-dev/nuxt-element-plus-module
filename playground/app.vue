@@ -3,7 +3,7 @@
     <el-container>
       <el-header>Header</el-header>
       <el-main>
-        <el-button circle>
+        <el-button>
           This is a test button.
         </el-button>
       </el-main>
