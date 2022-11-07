@@ -40,5 +40,5 @@ jobs:
         run: yarn --immutable
       - name: Generate tsconfig.json base
         run: yarn dev:prepare
-      - name: Lint
+      - name: Build
         run: yarn exec nuxt-module-build
