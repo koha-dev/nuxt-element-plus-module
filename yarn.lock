@@ -5854,6 +5854,7 @@ __metadata:
     eslint: latest
     nuxt: 3.0.0-rc.13
     pathe: ^0.3.9
+    unplugin-auto-import: ^0.11.4
     unplugin-element-plus: ^0.4.1
     unplugin-vue-components: ^0.22.8
   languageName: unknown
@@ -7950,6 +7951,25 @@ __metadata:
   version: 2.0.0
   resolution: "universalify@npm:2.0.0"
   checksum: 2406a4edf4a8830aa6813278bab1f953a8e40f2f63a37873ffa9a3bc8f9745d06cc8e88f3572cb899b7e509013f7f6fcc3e37e8a6d914167a5381d8440518c44
+  languageName: node
+  linkType: hard
+
+"unplugin-auto-import@npm:^0.11.4":
+  version: 0.11.4
+  resolution: "unplugin-auto-import@npm:0.11.4"
+  dependencies:
+    "@antfu/utils": ^0.6.0
+    "@rollup/pluginutils": ^5.0.2
+    local-pkg: ^0.4.2
+    magic-string: ^0.26.7
+    unimport: ^0.7.0
+    unplugin: ^0.10.2
+  peerDependencies:
+    "@vueuse/core": "*"
+  peerDependenciesMeta:
+    "@vueuse/core":
+      optional: true
+  checksum: 223897f1156677cdf5d0a0eb26764994176663e5e51f0375e30b8eb5a29d5d299c297133469f0af2037b5adbd9c53a04307879986fca5f4bea3ccd7106ff1268
   languageName: node
   linkType: hard
 
