@@ -1,6 +1,7 @@
 import { defineNuxtModule, addVitePlugin, addWebpackPlugin, addComponent, addImports } from '@nuxt/kit'
 import { resolve } from 'pathe'
-import AutoImport from 'unplugin-auto-import'
+import AutoImportVite from 'unplugin-auto-import/vite'
+import AutoImportWp from 'unplugin-auto-import/webpack'
 import ElementPlus from 'unplugin-element-plus'
 import type { Options as UnpluginEPOptions } from 'unplugin-element-plus/types'
 import VueComponents from 'unplugin-vue-components'
@@ -54,9 +55,9 @@ export default defineNuxtModule<ModuleOptions>({
         dts: false
       }
       addVitePlugin(VueComponents.vite(unpluginOptions))
-      addVitePlugin(AutoImport.vite(unpluginOptions))
+      addVitePlugin(AutoImportVite(unpluginOptions))
       addWebpackPlugin(VueComponents.webpack(unpluginOptions))
-      addWebpackPlugin(AutoImport.webpack(unpluginOptions))
+      addWebpackPlugin(AutoImportWp(unpluginOptions))
     }
   }
 })
