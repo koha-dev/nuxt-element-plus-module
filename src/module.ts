@@ -1,8 +1,8 @@
-import { defineNuxtModule, addVitePlugin, addComponent } from '@nuxt/kit'
+import { defineNuxtModule, addVitePlugin, addWebpackPlugin, addComponent } from '@nuxt/kit'
 import { resolve } from 'pathe'
-import ElementPlusVite from 'unplugin-element-plus/vite'
+import ElementPlus from 'unplugin-element-plus'
 import type { Options as UnpluginEPOptions } from 'unplugin-element-plus/types'
-import VueComponents from 'unplugin-vue-components/vite'
+import VueComponents from 'unplugin-vue-components'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { name, version } from '../package.json'
 
@@ -29,7 +29,8 @@ export default defineNuxtModule<ModuleOptions>({
   async setup (options, nuxt) {
     nuxt.options.build.transpile.push('element-plus/es')
 
-    addVitePlugin(ElementPlusVite(options.unpluginOptions))
+    addVitePlugin(ElementPlus.vite(options.unpluginOptions))
+    addWebpackPlugin(ElementPlus.webpack(options.unpluginOptions))
 
     if (options.autoImport) {
       Object.entries(await import('element-plus')).forEach(([key, _]) => {
@@ -42,10 +43,13 @@ export default defineNuxtModule<ModuleOptions>({
           export: key
         })
       })
-      addVitePlugin(VueComponents({
+
+      const unpluginOptions = {
         resolvers: [ElementPlusResolver()],
         dts: false
-      }))
+      }
+      addVitePlugin(VueComponents.vite(unpluginOptions))
+      addWebpackPlugin(VueComponents.webpack(unpluginOptions))
     }
   }
 })
