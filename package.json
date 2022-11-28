@@ -36,7 +36,7 @@
     "@nuxt/kit": "^3.0.0",
     "element-plus": "^2.2.17",
     "pathe": "^1.0.0",
-    "unplugin-auto-import": "^0.11.4",
+    "unplugin-auto-import": "^0.12.0",
     "unplugin-element-plus": "^0.4.1",
     "unplugin-vue-components": "^0.22.8"
   },
