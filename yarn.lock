@@ -22,6 +22,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@antfu/utils@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@antfu/utils@npm:0.7.0"
+  checksum: df99af43c84e87704d6469b9406eb1c1230bfe0eb74184cf1fb606634541bc0f78b0f6283ca39126e0e0497d28639a4e7590b70c4e990694e8e8fc6ee2aff452
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.18.6":
   version: 7.18.6
   resolution: "@babel/code-frame@npm:7.18.6"
@@ -5686,7 +5693,7 @@ __metadata:
     eslint: latest
     nuxt: 3.0.0
     pathe: ^1.0.0
-    unplugin-auto-import: ^0.11.4
+    unplugin-auto-import: ^0.12.0
     unplugin-element-plus: ^0.4.1
     unplugin-vue-components: ^0.22.8
   languageName: unknown
@@ -7773,25 +7780,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unimport@npm:^0.7.0":
-  version: 0.7.1
-  resolution: "unimport@npm:0.7.1"
-  dependencies:
-    "@rollup/pluginutils": ^5.0.2
-    escape-string-regexp: ^5.0.0
-    fast-glob: ^3.2.12
-    local-pkg: ^0.4.2
-    magic-string: ^0.26.7
-    mlly: ^1.0.0
-    pathe: ^1.0.0
-    pkg-types: ^1.0.1
-    scule: ^1.0.0
-    strip-literal: ^1.0.0
-    unplugin: ^1.0.0
-  checksum: ad44fd59cb221a11f151b31fd3d84280049c2d77cf292fe702fbb800eab38aa082c2585f45a8660fca8f676aa25aa75da8c8d1442c541b28091462828b61678f
-  languageName: node
-  linkType: hard
-
 "unimport@npm:^1.0.0, unimport@npm:^1.0.1":
   version: 1.0.1
   resolution: "unimport@npm:1.0.1"
@@ -7836,22 +7824,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unplugin-auto-import@npm:^0.11.4":
-  version: 0.11.4
-  resolution: "unplugin-auto-import@npm:0.11.4"
+"unplugin-auto-import@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "unplugin-auto-import@npm:0.12.0"
   dependencies:
-    "@antfu/utils": ^0.6.0
+    "@antfu/utils": ^0.7.0
     "@rollup/pluginutils": ^5.0.2
     local-pkg: ^0.4.2
     magic-string: ^0.26.7
-    unimport: ^0.7.0
-    unplugin: ^0.10.2
+    unimport: ^1.0.1
+    unplugin: ^1.0.0
   peerDependencies:
     "@vueuse/core": "*"
   peerDependenciesMeta:
     "@vueuse/core":
       optional: true
-  checksum: 223897f1156677cdf5d0a0eb26764994176663e5e51f0375e30b8eb5a29d5d299c297133469f0af2037b5adbd9c53a04307879986fca5f4bea3ccd7106ff1268
+  checksum: d7a1be0b41ba394b1d5c6511862e376f02eeee9337e636c71abada1328a209d2930e5382cc50eceef4035cc53d1bde96b49a7cb9737f0c799d4757d49d7acf87
   languageName: node
   linkType: hard
 
@@ -7891,7 +7879,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unplugin@npm:^0.10.1, unplugin@npm:^0.10.2":
+"unplugin@npm:^0.10.1":
   version: 0.10.2
   resolution: "unplugin@npm:0.10.2"
   dependencies:
