@@ -1,5 +1,4 @@
-import { defineNuxtModule, addVitePlugin, addWebpackPlugin, addComponent, addImports } from '@nuxt/kit'
-import { resolve } from 'pathe'
+import { defineNuxtModule, addVitePlugin, addWebpackPlugin, addComponent, addImports, createResolver } from '@nuxt/kit'
 import AutoImportVite from 'unplugin-auto-import/vite'
 import AutoImportWp from 'unplugin-auto-import/webpack'
 import ElementPlus from 'unplugin-element-plus'
@@ -9,9 +8,23 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { name, version } from '../package.json'
 
 export interface ModuleOptions {
-  // Whether to auto import or not
-  autoImport: boolean,
-  // Options to pass to `unplugin-element-plus`
+  /**
+   * Whether to auto import or not
+   *
+   * @default true
+   */
+  autoImport?: boolean,
+  /**
+   * Whether to include css for dark mode or not. When set to `true`, preprocessor dependency "sass" is required
+   *
+   * @default true
+   */
+  enableDarkMode?: boolean,
+  /**
+   * Options to pass to `unplugin-element-plus`
+   *
+   * @default {}
+   */
   unpluginOptions?: Partial<UnpluginEPOptions>,
 }
 
@@ -26,6 +39,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     autoImport: true,
+    enableDarkMode: true,
     unpluginOptions: {}
   },
   async setup (options, nuxt) {
@@ -35,13 +49,15 @@ export default defineNuxtModule<ModuleOptions>({
     addWebpackPlugin(ElementPlus.webpack(options.unpluginOptions))
 
     if (options.autoImport) {
+      const resolver = createResolver('.')
+
       Object.entries(await import('element-plus')).forEach(([key, _]) => {
         if (!key.toLowerCase().startsWith('el')) {
           return
         }
         addComponent({
           name: key,
-          filePath: resolve('.', 'node_modules/element-plus/es/components'),
+          filePath: resolver.resolve('node_modules/element-plus/es/components'),
           export: key
         })
         addImports({
@@ -58,6 +74,10 @@ export default defineNuxtModule<ModuleOptions>({
       addVitePlugin(AutoImportVite(unpluginOptions))
       addWebpackPlugin(VueComponents.webpack(unpluginOptions))
       addWebpackPlugin(AutoImportWp(unpluginOptions))
+    }
+
+    if (options.enableDarkMode) {
+      nuxt.options.css.push('element-plus/theme-chalk/src/dark/css-vars.scss')
     }
   }
 })
