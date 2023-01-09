@@ -1,3 +1,5 @@
+> ⚠️ This package is deprecated. See [`@element-plus/nuxt`](https://github.com/element-plus/element-plus-nuxt) for alternative.
+
 # nuxt-element-plus-module
 
 > A module that extends [`unplugin-element-plus`](https://github.com/element-plus/unplugin-element-plus)'s functionality.
